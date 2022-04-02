@@ -24,25 +24,14 @@ public class App {
 
         Engine engineGame = null;
         switch (gameNumber) {
-            case GameNumber.GREETING:
-                break;
-            case GameNumber.PARITY_CHECK:
-                engineGame = new ParityCheck();
-                break;
-            case GameNumber.CALCULATOR:
-                engineGame = new Calculator();
-                break;
-            case GameNumber.GCD:
-                engineGame = new CommonDivisor();
-                break;
-            case GameNumber.PROGRESSION:
-                engineGame = new Progression();
-                break;
-            case GameNumber.PRIME:
-                engineGame = new Prime();
-                break;
-            default:
-                System.exit(0);
+            case GameNumber.GREETING -> {
+            }
+            case GameNumber.PARITY_CHECK -> engineGame = new ParityCheck();
+            case GameNumber.CALCULATOR ->   engineGame = new Calculator();
+            case GameNumber.GCD ->          engineGame = new CommonDivisor();
+            case GameNumber.PROGRESSION ->  engineGame = new Progression();
+            case GameNumber.PRIME ->        engineGame = new Prime();
+            default -> System.exit(0);
         }
 
         System.out.println("Welcome to the Brain Games!");
