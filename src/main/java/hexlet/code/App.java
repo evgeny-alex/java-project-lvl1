@@ -15,6 +15,7 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit
                 Your choice:\040""");
 
@@ -36,6 +37,9 @@ public class App {
                 break;
             case GameNumber.PROGRESSION:
                 engineGame = new Progression();
+                break;
+            case GameNumber.PRIME:
+                engineGame = new Prime();
                 break;
             default:
                 System.exit(0);
