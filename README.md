@@ -1,22 +1,24 @@
 ##Игры разума
+
 ###Скриншоты запуска игры
+
 #### Greetings
-![](D:\Documents\Job\Hexlet\Greeting.png)
+![](https://github.com/evgeny-alex/java-project-lvl1/src/main/resources/Greeting.png)
 
 #### Even number
-![](D:\Documents\Job\Hexlet\Even.png)
+![](https://github.com/evgeny-alex/java-project-lvl1/src/main/resources/Even.png)
 
 #### Calculator
-![](D:\Documents\Job\Hexlet\Calculator.png)
+![](https://github.com/evgeny-alex/java-project-lvl1/src/main/resources/Calculator.png)
 
 #### GCD
-![](D:\Documents\Job\Hexlet\GCD.png)
+![](https://github.com/evgeny-alex/java-project-lvl1/src/main/resources/GCD.png)
 
 #### Progression
-![](D:\Documents\Job\Hexlet\Progression.png)
+![](https://github.com/evgeny-alex/java-project-lvl1/src/main/resources/Progression.png)
 
 #### Prime
-![](D:\Documents\Job\Hexlet\Prime.png)
+![](https://github.com/evgeny-alex/java-project-lvl1/src/main/resources/Prime.png)
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/evgeny-alex/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/evgeny-alex/java-project-lvl1/actions)
