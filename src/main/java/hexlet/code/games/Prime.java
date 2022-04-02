@@ -26,6 +26,12 @@ public final class Prime extends Engine {
         questionInfo.setCorrectAnswer(isPrime ? YES_ANSWER : NO_ANSWER);
     }
 
+    /**
+     * Метод определяет является ли число простым.
+     *
+     * @param number - проверяемое число
+     * @return - true, если да; false, если нет
+     */
     private boolean isPrimeNumber(int number) {
         for (int i = 2; i < (number / 2 + 1); i++) {
             if (number % i == 0) {

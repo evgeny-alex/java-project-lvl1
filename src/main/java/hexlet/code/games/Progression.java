@@ -41,6 +41,11 @@ public final class Progression extends Engine {
         questionInfo.setQuestion(question.toString());
     }
 
+    /**
+     * Метод заполняет список элементов арифметической прогрессии.
+     *
+     * @param progression - список арифметической прогрессии
+     */
     private void fillProgression(List<Integer> progression) {
         int firstNumber = RANDOM.nextInt(MAX_FIRST_NUMBER);
         int step = RANDOM.nextInt(MIN_STEP, MAX_STEP);

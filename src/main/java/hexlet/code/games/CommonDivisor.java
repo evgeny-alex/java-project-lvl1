@@ -21,17 +21,24 @@ public final class CommonDivisor extends Engine {
         questionInfo.setCorrectAnswer(String.valueOf(answer));
     }
 
-    private int greatestCommonDivisor(int a, int b) {
-        if (a == 0) {
-            return b;
+    /**
+     * Метод находит НОД чисел
+     *
+     * @param firstNumber - первое число
+     * @param secondNumber - второе число
+     * @return - НОД входных чисел
+     */
+    private int greatestCommonDivisor(int firstNumber, int secondNumber) {
+        if (firstNumber == 0) {
+            return secondNumber;
         }
-        while (b != 0) {
-            if (a > b) {
-                a = a - b;
+        while (secondNumber != 0) {
+            if (firstNumber > secondNumber) {
+                firstNumber = firstNumber - secondNumber;
             } else {
-                b = b - a;
+                secondNumber = secondNumber - firstNumber;
             }
         }
-        return a;
+        return firstNumber;
     }
 }
