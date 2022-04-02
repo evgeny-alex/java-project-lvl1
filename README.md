@@ -1,6 +1,9 @@
 # Игры разума
 
-## Скриншоты запуска игры
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/evgeny-alex/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/evgeny-alex/java-project-lvl1/actions)
+
+### Скриншоты запуска игры
 
 #### Greetings
 ![](https://github.com/evgeny-alex/java-project-lvl1/raw/main/src/main/resources/Greeting.png)
@@ -19,6 +22,3 @@
 
 #### Prime
 ![](https://github.com/evgeny-alex/java-project-lvl1/raw/main/src/main/resources/Prime.png)
-
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/evgeny-alex/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/evgeny-alex/java-project-lvl1/actions)
