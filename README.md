@@ -1,6 +1,6 @@
-#Игры разума
+# Игры разума
 
-##Скриншоты запуска игры
+## Скриншоты запуска игры
 
 #### Greetings
 ![](https://github.com/evgeny-alex/java-project-lvl1/raw/main/src/main/resources/Greeting.png)
