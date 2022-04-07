@@ -32,9 +32,9 @@ public final class Progression extends Engine {
 
         for (int i = 0; i < progression.size(); i++) {
             if (i == numberAnswer) {
-                question.append(" ..");
+                question.append(".. ");
             } else {
-                question.append(" ").append(progression.get(i));
+                question.append(progression.get(i)).append(" ");
             }
         }
         questionInfo.setCorrectAnswer(String.valueOf(progression.get(numberAnswer)));
