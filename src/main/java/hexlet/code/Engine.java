@@ -26,12 +26,12 @@ public class Engine {
     /**
      * Установка игры.
      *
-     * @param gameNumber - номер игры
+     * @param newGameNumber - номер игры
      * @author Evgeny Aleksandrov
      * @version 1.0
      */
-    public void setGameNumber(String gameNumber) {
-        this.gameNumber = gameNumber;
+    public void setGameNumber(String newGameNumber) {
+        this.gameNumber = newGameNumber;
     }
 
     /**
@@ -50,7 +50,8 @@ public class Engine {
             case GameNumber.GCD -> CommonDivisor.fillGameQuestion(question);
             case GameNumber.PROGRESSION -> Progression.fillGameQuestion(question);
             case GameNumber.PRIME -> Prime.fillGameQuestion(question);
-            default -> {}
+            default -> {
+            }
         }
 
         return question;
@@ -70,7 +71,8 @@ public class Engine {
             case GameNumber.GCD -> CommonDivisor.fillQuestionInfo(questionInfo);
             case GameNumber.PROGRESSION -> Progression.fillQuestionInfo(questionInfo);
             case GameNumber.PRIME -> Prime.fillQuestionInfo(questionInfo);
-            default -> {}
+            default -> {
+            }
         }
     }
 
@@ -108,6 +110,7 @@ public class Engine {
 
     /**
      * Установка имени.
+     *
      * @param newPlayerName - Имя игрока
      */
     public void setPlayerName(String newPlayerName) {
