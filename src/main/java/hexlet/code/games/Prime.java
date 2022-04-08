@@ -13,8 +13,8 @@ public final class Prime {
 
     private static final String NO_ANSWER = "no";
 
-    public static String getGameQuestion() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void fillGameQuestion(String question) {
+        question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     public static void fillQuestionInfo(QuestionInfo questionInfo) {

@@ -13,8 +13,8 @@ public final class Calculator {
 
     private static final int COUNT_OPERATION = 3;
 
-    public static String getGameQuestion() {
-        return "What is the result of the expression?";
+    public static void fillGameQuestion(String question) {
+        question = "What is the result of the expression?";
     }
 
     public static void fillQuestionInfo(QuestionInfo questionInfo) {

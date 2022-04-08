@@ -7,8 +7,8 @@ public final class CommonDivisor {
 
     private static final int MAX_NUMBER = 100;
 
-    public static String getGameQuestion() {
-        return "Find the greatest common divisor of given numbers.";
+    public static void fillGameQuestion(String question) {
+        question = "Find the greatest common divisor of given numbers.";
     }
 
     public static void fillQuestionInfo(QuestionInfo questionInfo) {
@@ -21,7 +21,7 @@ public final class CommonDivisor {
     }
 
     /**
-     * Метод находит НОД чисел
+     * Метод находит НОД чисел.
      *
      * @param firstNumber - первое число
      * @param secondNumber - второе число

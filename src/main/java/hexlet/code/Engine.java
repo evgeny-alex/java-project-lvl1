@@ -2,7 +2,11 @@ package hexlet.code;
 
 import hexlet.code.constants.GameNumber;
 import hexlet.code.dto.QuestionInfo;
-import hexlet.code.games.*;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.CommonDivisor;
+import hexlet.code.games.ParityCheck;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -38,15 +42,15 @@ public class Engine {
      * @version 1.0
      */
     protected String getGameQuestion() {
-        String question;
+        String question = "";
 
         switch (gameNumber) {
-            case GameNumber.PARITY_CHECK -> question = ParityCheck.getGameQuestion();
-            case GameNumber.CALCULATOR -> question = Calculator.getGameQuestion();
-            case GameNumber.GCD -> question = CommonDivisor.getGameQuestion();
-            case GameNumber.PROGRESSION -> question = Progression.getGameQuestion();
-            case GameNumber.PRIME -> question = Prime.getGameQuestion();
-            default -> question = "";
+            case GameNumber.PARITY_CHECK -> ParityCheck.fillGameQuestion(question);
+            case GameNumber.CALCULATOR -> Calculator.fillGameQuestion(question);
+            case GameNumber.GCD -> CommonDivisor.fillGameQuestion(question);
+            case GameNumber.PROGRESSION -> Progression.fillGameQuestion(question);
+            case GameNumber.PRIME -> Prime.fillGameQuestion(question);
+            default -> {}
         }
 
         return question;
@@ -66,6 +70,7 @@ public class Engine {
             case GameNumber.GCD -> CommonDivisor.fillQuestionInfo(questionInfo);
             case GameNumber.PROGRESSION -> Progression.fillQuestionInfo(questionInfo);
             case GameNumber.PRIME -> Prime.fillQuestionInfo(questionInfo);
+            default -> {}
         }
     }
 
@@ -101,7 +106,11 @@ public class Engine {
         }
     }
 
-    public final void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    /**
+     * Установка имени.
+     * @param newPlayerName - Имя игрока
+     */
+    public void setPlayerName(String newPlayerName) {
+        this.playerName = newPlayerName;
     }
 }

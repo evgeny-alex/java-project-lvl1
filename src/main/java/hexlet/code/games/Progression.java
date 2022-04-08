@@ -18,8 +18,8 @@ public final class Progression {
 
     private static final int MIN_LENGTH = 5;
 
-    public static String getGameQuestion() {
-        return "What number is missing in the progression?";
+    public static void fillGameQuestion(String question) {
+        question = "What number is missing in the progression?";
     }
 
     public static void fillQuestionInfo(QuestionInfo questionInfo) {

@@ -10,15 +10,15 @@ public final class QuestionInfo {
         return question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(String newQuestion) {
+        this.question = newQuestion;
     }
 
     public String getCorrectAnswer() {
         return correctAnswer;
     }
 
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+    public void setCorrectAnswer(String newCorrectAnswer) {
+        this.correctAnswer = newCorrectAnswer;
     }
 }

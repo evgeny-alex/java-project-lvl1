@@ -11,8 +11,8 @@ public final class ParityCheck {
 
     private static final String NO_ANSWER = "no";
 
-    public static String getGameQuestion() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static void fillGameQuestion(String question) {
+        question = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     public static void fillQuestionInfo(QuestionInfo questionInfo) {
