@@ -3,9 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.dto.QuestionInfo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public final class Progression {
 
     private static final int MAX_FIRST_NUMBER = 10;
