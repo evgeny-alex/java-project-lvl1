@@ -52,7 +52,7 @@ public final class Progression {
 
         progression[0] = firstNumber;
         int currentNumber = firstNumber;
-        for (int i = 1; i <= progression.length; i++) {
+        for (int i = 1; i < progression.length; i++) {
             currentNumber += step;
             progression[i] = currentNumber;
         }
