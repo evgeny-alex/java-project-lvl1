@@ -23,20 +23,21 @@ public final class Progression {
     }
 
     public static void fillQuestionInfo(QuestionInfo questionInfo) {
-        List<Integer> progression = new ArrayList<>();
+        int length = Engine.RANDOM.nextInt(MIN_LENGTH, MAX_LENGTH);
+        int[] progression = new int[length];
         fillProgression(progression);
 
-        int numberAnswer = Engine.RANDOM.nextInt(progression.size());
+        int numberAnswer = Engine.RANDOM.nextInt(progression.length);
         StringBuilder question = new StringBuilder();
 
-        for (int i = 0; i < progression.size(); i++) {
+        for (int i = 0; i < progression.length; i++) {
             if (i == numberAnswer) {
                 question.append(".. ");
             } else {
-                question.append(progression.get(i)).append(" ");
+                question.append(progression[i]).append(" ");
             }
         }
-        questionInfo.setCorrectAnswer(String.valueOf(progression.get(numberAnswer)));
+        questionInfo.setCorrectAnswer(String.valueOf(progression[numberAnswer]));
         questionInfo.setQuestion(question.toString());
     }
 
@@ -45,16 +46,15 @@ public final class Progression {
      *
      * @param progression - список арифметической прогрессии
      */
-    private static void fillProgression(List<Integer> progression) {
+    private static void fillProgression(int[] progression) {
         int firstNumber = Engine.RANDOM.nextInt(MAX_FIRST_NUMBER);
         int step = Engine.RANDOM.nextInt(MIN_STEP, MAX_STEP);
-        int length = Engine.RANDOM.nextInt(MIN_LENGTH, MAX_LENGTH);
 
-        progression.add(firstNumber);
+        progression[0] = firstNumber;
         int currentNumber = firstNumber;
-        for (int i = 0; i < length; i++) {
+        for (int i = 1; i <= progression.length; i++) {
             currentNumber += step;
-            progression.add(currentNumber);
+            progression[i] = currentNumber;
         }
     }
 }
