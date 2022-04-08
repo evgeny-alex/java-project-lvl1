@@ -1,29 +1,56 @@
-package hexlet.code.games;
+package hexlet.code;
 
+import hexlet.code.constants.GameNumber;
 import hexlet.code.dto.QuestionInfo;
+import hexlet.code.games.*;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public abstract class Engine {
+public class Engine {
 
     private String playerName = "";
 
+    private String gameNumber = "";
+
     private static final int COUNT_ROUNDS = 3;
 
-    protected static final Random RANDOM = new Random();
+    public static final Random RANDOM = new Random();
 
     private final Scanner scanner = new Scanner(System.in);
 
     /**
-     * Метод возвращает условие игры.
+     * Установка игры.
      *
+     * @param gameNumber - номер игры
      * @author Evgeny Aleksandrov
      * @version 1.0
+     */
+    public void setGameNumber(String gameNumber) {
+        this.gameNumber = gameNumber;
+    }
+
+    /**
+     * Метод возвращает условие игры.
      *
      * @return условие игры
+     * @author Evgeny Aleksandrov
+     * @version 1.0
      */
-    protected abstract String getGameQuestion();
+    protected String getGameQuestion() {
+        String question;
+
+        switch (gameNumber) {
+            case GameNumber.PARITY_CHECK -> question = ParityCheck.getGameQuestion();
+            case GameNumber.CALCULATOR -> question = Calculator.getGameQuestion();
+            case GameNumber.GCD -> question = CommonDivisor.getGameQuestion();
+            case GameNumber.PROGRESSION -> question = Progression.getGameQuestion();
+            case GameNumber.PRIME -> question = Prime.getGameQuestion();
+            default -> question = "";
+        }
+
+        return question;
+    }
 
     /**
      * Метод заполняет детали вопроса: описание вопроса и правильный ответ.
@@ -32,7 +59,15 @@ public abstract class Engine {
      * @author Evgeny Aleksandrov
      * @version 1.0
      */
-    protected abstract void fillQuestionInfo(QuestionInfo questionInfo);
+    protected void fillQuestionInfo(QuestionInfo questionInfo) {
+        switch (gameNumber) {
+            case GameNumber.PARITY_CHECK -> ParityCheck.fillQuestionInfo(questionInfo);
+            case GameNumber.CALCULATOR -> Calculator.fillQuestionInfo(questionInfo);
+            case GameNumber.GCD -> CommonDivisor.fillQuestionInfo(questionInfo);
+            case GameNumber.PROGRESSION -> Progression.fillQuestionInfo(questionInfo);
+            case GameNumber.PRIME -> Prime.fillQuestionInfo(questionInfo);
+        }
+    }
 
     /**
      * Метод запускает игру.

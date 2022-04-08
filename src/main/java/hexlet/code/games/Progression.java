@@ -1,11 +1,12 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.dto.QuestionInfo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Progression extends Engine {
+public final class Progression {
 
     private static final int MAX_FIRST_NUMBER = 10;
 
@@ -17,17 +18,15 @@ public final class Progression extends Engine {
 
     private static final int MIN_LENGTH = 5;
 
-    @Override
-    protected String getGameQuestion() {
+    public static String getGameQuestion() {
         return "What number is missing in the progression?";
     }
 
-    @Override
-    protected void fillQuestionInfo(QuestionInfo questionInfo) {
+    public static void fillQuestionInfo(QuestionInfo questionInfo) {
         List<Integer> progression = new ArrayList<>();
         fillProgression(progression);
 
-        int numberAnswer = RANDOM.nextInt(progression.size());
+        int numberAnswer = Engine.RANDOM.nextInt(progression.size());
         StringBuilder question = new StringBuilder();
 
         for (int i = 0; i < progression.size(); i++) {
@@ -46,10 +45,10 @@ public final class Progression extends Engine {
      *
      * @param progression - список арифметической прогрессии
      */
-    private void fillProgression(List<Integer> progression) {
-        int firstNumber = RANDOM.nextInt(MAX_FIRST_NUMBER);
-        int step = RANDOM.nextInt(MIN_STEP, MAX_STEP);
-        int length = RANDOM.nextInt(MIN_LENGTH, MAX_LENGTH);
+    private static void fillProgression(List<Integer> progression) {
+        int firstNumber = Engine.RANDOM.nextInt(MAX_FIRST_NUMBER);
+        int step = Engine.RANDOM.nextInt(MIN_STEP, MAX_STEP);
+        int length = Engine.RANDOM.nextInt(MIN_LENGTH, MAX_LENGTH);
 
         progression.add(firstNumber);
         int currentNumber = firstNumber;

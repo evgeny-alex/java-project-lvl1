@@ -1,6 +1,6 @@
 #Makefile
 
 run-dist:
-	/build/install/app/bin/app
+	/Documents/Job/Hexlet/java-project-lvl1/build/install/app/bin/app
 
 

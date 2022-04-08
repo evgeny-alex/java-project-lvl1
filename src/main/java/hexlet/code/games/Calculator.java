@@ -1,8 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.dto.QuestionInfo;
 
-public final class Calculator extends Engine {
+public final class Calculator {
 
     private static final int MAX_NUMBER = 20;
 
@@ -12,16 +13,14 @@ public final class Calculator extends Engine {
 
     private static final int COUNT_OPERATION = 3;
 
-    @Override
-    protected String getGameQuestion() {
+    public static String getGameQuestion() {
         return "What is the result of the expression?";
     }
 
-    @Override
-    protected void fillQuestionInfo(QuestionInfo questionInfo) {
-        int firstNumber = RANDOM.nextInt(MAX_NUMBER);
-        int secondNumber = RANDOM.nextInt(MAX_NUMBER);
-        int codeOperation = RANDOM.nextInt(COUNT_OPERATION);
+    public static void fillQuestionInfo(QuestionInfo questionInfo) {
+        int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+        int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+        int codeOperation = Engine.RANDOM.nextInt(COUNT_OPERATION);
 
         char symbolOperation;
         int answer;

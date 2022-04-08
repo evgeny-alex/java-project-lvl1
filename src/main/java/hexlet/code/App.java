@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.constants.GameNumber;
-import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -22,15 +21,11 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String gameNumber = scanner.next();
 
-        Engine engineGame = null;
+        Engine engine = new Engine();
         switch (gameNumber) {
-            case GameNumber.GREETING -> {
-            }
-            case GameNumber.PARITY_CHECK -> engineGame = new ParityCheck();
-            case GameNumber.CALCULATOR ->   engineGame = new Calculator();
-            case GameNumber.GCD ->          engineGame = new CommonDivisor();
-            case GameNumber.PROGRESSION ->  engineGame = new Progression();
-            case GameNumber.PRIME ->        engineGame = new Prime();
+            case    GameNumber.GREETING, GameNumber.PARITY_CHECK, GameNumber.CALCULATOR,
+                    GameNumber.GCD, GameNumber.PROGRESSION, GameNumber.PRIME
+                    -> engine.setGameNumber(gameNumber);
             default -> System.exit(0);
         }
 
@@ -38,9 +33,9 @@ public class App {
         Cli cli = new Cli();
         String playerName = cli.enterName();
 
-        if (engineGame != null) {
-            engineGame.setPlayerName(playerName);
-            engineGame.playGame();
+        if (!gameNumber.equals(GameNumber.GREETING)) {
+            engine.setPlayerName(playerName);
+            engine.playGame();
         }
     }
 }
