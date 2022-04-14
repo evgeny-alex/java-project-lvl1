@@ -21,17 +21,7 @@ public final class Calculator {
             int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
             int operator = Engine.RANDOM.nextInt(OPERATORS.length);
 
-            int answer = 0;
-            switch (OPERATORS[operator]) {
-                case "+" -> answer = firstNumber + secondNumber;
-                case "-" -> answer = firstNumber - secondNumber;
-                case "*" -> answer = firstNumber * secondNumber;
-                default -> {
-                    // Должен быть выброс исключения, но пока пишем ошибку, и выходим из программы
-                    System.err.println("Для оператора " + OPERATORS[operator] + " не определена логика.");
-                    System.exit(1);
-                }
-            }
+            int answer = calculateExpression(operator, firstNumber, secondNumber);
 
             questionInfo[0] = firstNumber + " " + OPERATORS[operator] + " " + secondNumber;
             questionInfo[Engine.COUNT_INFO - 1] = String.valueOf(answer);
@@ -39,5 +29,25 @@ public final class Calculator {
             gameInfo[i] = questionInfo;
         }
         return gameInfo;
+    }
+
+    private static int calculateExpression(int operator, int firstNumber, int secondNumber) {
+        switch (OPERATORS[operator]) {
+            case "+" -> {
+                return firstNumber + secondNumber;
+            }
+            case "-" -> {
+                return firstNumber - secondNumber;
+            }
+            case "*" -> {
+                return firstNumber * secondNumber;
+            }
+            default -> {
+                // Должен быть выброс исключения, но пока пишем ошибку, и выходим из программы
+                System.err.println("Для оператора " + OPERATORS[operator] + " не определена логика.");
+                System.exit(1);
+                return 0;
+            }
+        }
     }
 }
