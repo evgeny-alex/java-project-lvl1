@@ -1,45 +1,43 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.dto.QuestionInfo;
 
 public final class Calculator {
 
     private static final int MAX_NUMBER = 20;
 
-    private static final int SUM_CODE_OPERATION = 0;
+    private static final String[] OPERATORS = {"+", "-", "*"};
 
-    private static final int MINUS_CODE_OPERATION = 1;
-
-    private static final int COUNT_OPERATION = 3;
-
-    public static void fillGameQuestion(String question) {
-        question = "What is the result of the expression?";
+    public static String getGameQuestion() {
+        return "What is the result of the expression?";
     }
 
-    public static void fillQuestionInfo(QuestionInfo questionInfo) {
-        int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-        int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-        int codeOperation = Engine.RANDOM.nextInt(COUNT_OPERATION);
+    public static String[][] getGameInfo() {
+        String[][] gameInfo = new String[Engine.COUNT_QUESTIONS][Engine.COUNT_INFO];
+        for (int i = 0; i < Engine.COUNT_QUESTIONS; i++) {
+            String[] questionInfo = new String[Engine.COUNT_INFO];
 
-        char symbolOperation;
-        int answer;
-        switch (codeOperation) {
-            case SUM_CODE_OPERATION -> {
-                symbolOperation = '+';
-                answer = firstNumber + secondNumber;
+            int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+            int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+            int operator = Engine.RANDOM.nextInt(OPERATORS.length);
+
+            int answer = 0;
+            switch (OPERATORS[operator]) {
+                case "+" -> answer = firstNumber + secondNumber;
+                case "-" -> answer = firstNumber - secondNumber;
+                case "*" -> answer = firstNumber * secondNumber;
+                default -> {
+                    // Должен быть выброс исключения, но пока пишем ошибку, и выходим из программы
+                    System.err.println("Для оператора " + OPERATORS[operator] + " не определена логика.");
+                    System.exit(1);
+                }
             }
-            case MINUS_CODE_OPERATION -> {
-                symbolOperation = '-';
-                answer = firstNumber - secondNumber;
-            }
-            default -> {
-                symbolOperation = '*';
-                answer = firstNumber * secondNumber;
-            }
+
+            questionInfo[0] = firstNumber + " " + OPERATORS[operator] + " " + secondNumber;
+            questionInfo[Engine.COUNT_INFO - 1] = String.valueOf(answer);
+
+            gameInfo[i] = questionInfo;
         }
-
-        questionInfo.setQuestion(firstNumber + " " + symbolOperation + " " + secondNumber);
-        questionInfo.setCorrectAnswer(String.valueOf(answer));
+        return gameInfo;
     }
 }

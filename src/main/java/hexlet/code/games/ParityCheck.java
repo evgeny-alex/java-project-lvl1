@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.dto.QuestionInfo;
 
 public final class ParityCheck {
 
@@ -11,15 +10,23 @@ public final class ParityCheck {
 
     private static final String NO_ANSWER = "no";
 
-    public static void fillGameQuestion(String question) {
-        question = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static String getGameQuestion() {
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
-    public static void fillQuestionInfo(QuestionInfo questionInfo) {
-        int number = Engine.RANDOM.nextInt(MAX_NUMBER);
-        String correctAnswer = (number % 2 == 0) ? YES_ANSWER : NO_ANSWER;
+    public static String[][] getGameInfo() {
+        String[][] gameInfo = new String[Engine.COUNT_QUESTIONS][Engine.COUNT_INFO];
+        for (int i = 0; i < Engine.COUNT_QUESTIONS; i++) {
+            String[] questionInfo = new String[Engine.COUNT_INFO];
 
-        questionInfo.setQuestion(String.valueOf(number));
-        questionInfo.setCorrectAnswer(correctAnswer);
+            int number = Engine.RANDOM.nextInt(MAX_NUMBER);
+            String correctAnswer = (number % 2 == 0) ? YES_ANSWER : NO_ANSWER;
+
+            questionInfo[0] = String.valueOf(number);
+            questionInfo[Engine.COUNT_INFO - 1] = correctAnswer;
+
+            gameInfo[i] = questionInfo;
+        }
+        return gameInfo;
     }
 }

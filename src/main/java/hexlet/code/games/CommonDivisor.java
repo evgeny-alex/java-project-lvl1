@@ -1,23 +1,30 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.dto.QuestionInfo;
 
 public final class CommonDivisor {
 
     private static final int MAX_NUMBER = 100;
 
-    public static void fillGameQuestion(String question) {
-        question = "Find the greatest common divisor of given numbers.";
+    public static String getGameQuestion() {
+        return "Find the greatest common divisor of given numbers.";
     }
 
-    public static void fillQuestionInfo(QuestionInfo questionInfo) {
-        int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-        int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-        int answer = greatestCommonDivisor(firstNumber, secondNumber);
+    public static String[][] getGameInfo() {
+        String[][] gameInfo = new String[Engine.COUNT_QUESTIONS][Engine.COUNT_INFO];
+        for (int i = 0; i < Engine.COUNT_QUESTIONS; i++) {
+            String[] questionInfo = new String[Engine.COUNT_INFO];
 
-        questionInfo.setQuestion(firstNumber + " " + secondNumber);
-        questionInfo.setCorrectAnswer(String.valueOf(answer));
+            int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+            int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+            int answer = greatestCommonDivisor(firstNumber, secondNumber);
+
+            questionInfo[0] = firstNumber + " " + secondNumber;
+            questionInfo[Engine.COUNT_INFO - 1] = String.valueOf(answer);
+
+            gameInfo[i] = questionInfo;
+        }
+        return gameInfo;
     }
 
     /**

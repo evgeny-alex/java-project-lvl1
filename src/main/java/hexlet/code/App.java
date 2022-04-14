@@ -1,6 +1,11 @@
 package hexlet.code;
 
 import hexlet.code.constants.GameNumber;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.CommonDivisor;
+import hexlet.code.games.ParityCheck;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -21,21 +26,14 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String gameNumber = scanner.next();
 
-        Engine engine = new Engine();
         switch (gameNumber) {
-            case    GameNumber.GREETING, GameNumber.PARITY_CHECK, GameNumber.CALCULATOR,
-                    GameNumber.GCD, GameNumber.PROGRESSION, GameNumber.PRIME
-                    -> engine.setGameNumber(gameNumber);
+            case GameNumber.GREETING -> Engine.greeting();
+            case GameNumber.PARITY_CHECK -> Engine.playGame(ParityCheck.getGameQuestion(), ParityCheck.getGameInfo());
+            case GameNumber.CALCULATOR -> Engine.playGame(Calculator.getGameQuestion(), Calculator.getGameInfo());
+            case GameNumber.GCD -> Engine.playGame(CommonDivisor.getGameQuestion(), CommonDivisor.getGameInfo());
+            case GameNumber.PROGRESSION -> Engine.playGame(Progression.getGameQuestion(), Progression.getGameInfo());
+            case GameNumber.PRIME -> Engine.playGame(Prime.getGameQuestion(), Prime.getGameInfo());
             default -> System.exit(0);
-        }
-
-        System.out.println("Welcome to the Brain Games!");
-        Cli cli = new Cli();
-        String playerName = cli.enterName();
-
-        if (!gameNumber.equals(GameNumber.GREETING)) {
-            engine.setPlayerName(playerName);
-            engine.playGame();
         }
     }
 }

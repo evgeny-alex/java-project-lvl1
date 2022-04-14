@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Cli {
 
-    private final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     /**
      *Метод просит пользователя ввести имя и возвращает его.
@@ -14,10 +14,7 @@ public class Cli {
      * @version 1.0
      * @return - name of player
      */
-    public String enterName() {
-        System.out.print("May I have your name? ");
-        String name = scanner.next();
-        System.out.println("Hello, " + name + "!");
-        return name;
+    public static String enterAndGetName() {
+        return SCANNER.next();
     }
 }
