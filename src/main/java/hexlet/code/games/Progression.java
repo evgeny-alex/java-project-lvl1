@@ -63,10 +63,8 @@ public final class Progression {
      */
     private static int[] getProgressionByParams(int firstNumber, int step, int length) {
         int[] progression = new int[length];
-        int currentNumber = 0;
         for (int i = 0; i < length; i++) {
-            currentNumber += firstNumber + step * i;
-            progression[i] = currentNumber;
+            progression[i] = firstNumber + step * i;
         }
         return progression;
     }
