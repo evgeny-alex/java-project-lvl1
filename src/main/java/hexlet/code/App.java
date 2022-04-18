@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.constants.GameNumber;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.CommonDivisor;
 import hexlet.code.games.ParityCheck;
@@ -27,12 +26,17 @@ public class App {
         String gameNumber = scanner.next();
 
         switch (gameNumber) {
-            case GameNumber.GREETING -> Engine.greeting();
-            case GameNumber.PARITY_CHECK -> Engine.playGame(ParityCheck.getGameQuestion(), ParityCheck.getGameInfo());
-            case GameNumber.CALCULATOR -> Engine.playGame(Calculator.getGameQuestion(), Calculator.getGameInfo());
-            case GameNumber.GCD -> Engine.playGame(CommonDivisor.getGameQuestion(), CommonDivisor.getGameInfo());
-            case GameNumber.PROGRESSION -> Engine.playGame(Progression.getGameQuestion(), Progression.getGameInfo());
-            case GameNumber.PRIME -> Engine.playGame(Prime.getGameQuestion(), Prime.getGameInfo());
+            case "1" -> {
+                System.out.println("Welcome to the Brain Games!");
+                System.out.print("May I have your name? ");
+                String playerName = Cli.enterAndGetName();
+                System.out.println("Hello, " + playerName + "!");
+            }
+            case "2" -> ParityCheck.startGame();
+            case "3" -> Calculator.startGame();
+            case "4" -> CommonDivisor.startGame();
+            case "5" -> Progression.startGame();
+            case "6" -> Prime.startGame();
             default -> System.exit(0);
         }
     }

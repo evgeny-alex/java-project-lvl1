@@ -1,8 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public final class ParityCheck {
+
+    public static final Random RANDOM = new Random();
 
     private static final int MAX_NUMBER = 20;
 
@@ -10,16 +13,18 @@ public final class ParityCheck {
 
     private static final String NO_ANSWER = "no";
 
-    public static String getGameQuestion() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String GAME_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
+    public static void startGame() {
+        Engine.playGame(GAME_QUESTION, getGameInfo());
     }
 
-    public static String[][] getGameInfo() {
-        String[][] gameInfo = new String[Engine.COUNT_QUESTIONS][Engine.COUNT_INFO];
-        for (int i = 0; i < Engine.COUNT_QUESTIONS; i++) {
+    private static String[][] getGameInfo() {
+        String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
+        for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
             String[] questionInfo = new String[Engine.COUNT_INFO];
 
-            int number = Engine.RANDOM.nextInt(MAX_NUMBER);
+            int number = RANDOM.nextInt(MAX_NUMBER);
             String correctAnswer = (number % 2 == 0) ? YES_ANSWER : NO_ANSWER;
 
             questionInfo[0] = String.valueOf(number);

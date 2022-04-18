@@ -1,25 +1,30 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public final class Calculator {
+
+    public static final Random RANDOM = new Random();
 
     private static final int MAX_NUMBER = 20;
 
     private static final String[] OPERATORS = {"+", "-", "*"};
 
-    public static String getGameQuestion() {
-        return "What is the result of the expression?";
+    private static final String GAME_QUESTION = "What is the result of the expression?";
+
+    public static void startGame() {
+        Engine.playGame(GAME_QUESTION, getGameInfo());
     }
 
-    public static String[][] getGameInfo() {
-        String[][] gameInfo = new String[Engine.COUNT_QUESTIONS][Engine.COUNT_INFO];
-        for (int i = 0; i < Engine.COUNT_QUESTIONS; i++) {
+    private static String[][] getGameInfo() {
+        String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
+        for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
             String[] questionInfo = new String[Engine.COUNT_INFO];
 
-            int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-            int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-            int operator = Engine.RANDOM.nextInt(OPERATORS.length);
+            int firstNumber = RANDOM.nextInt(MAX_NUMBER);
+            int secondNumber = RANDOM.nextInt(MAX_NUMBER);
+            int operator = RANDOM.nextInt(OPERATORS.length);
 
             int answer = calculateExpression(operator, firstNumber, secondNumber);
 

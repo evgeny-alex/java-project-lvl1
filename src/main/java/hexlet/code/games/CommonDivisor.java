@@ -1,22 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import java.util.Random;
 
 public final class CommonDivisor {
 
+    public static final Random RANDOM = new Random();
+
     private static final int MAX_NUMBER = 100;
 
-    public static String getGameQuestion() {
-        return "Find the greatest common divisor of given numbers.";
+    private static final String GAME_QUESTION = "Find the greatest common divisor of given numbers.";
+
+    public static void startGame() {
+        Engine.playGame(GAME_QUESTION, getGameInfo());
     }
 
-    public static String[][] getGameInfo() {
-        String[][] gameInfo = new String[Engine.COUNT_QUESTIONS][Engine.COUNT_INFO];
-        for (int i = 0; i < Engine.COUNT_QUESTIONS; i++) {
+    private static String[][] getGameInfo() {
+        String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
+        for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
             String[] questionInfo = new String[Engine.COUNT_INFO];
 
-            int firstNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
-            int secondNumber = Engine.RANDOM.nextInt(MAX_NUMBER);
+            int firstNumber = RANDOM.nextInt(MAX_NUMBER);
+            int secondNumber = RANDOM.nextInt(MAX_NUMBER);
             int answer = greatestCommonDivisor(firstNumber, secondNumber);
 
             questionInfo[0] = firstNumber + " " + secondNumber;
