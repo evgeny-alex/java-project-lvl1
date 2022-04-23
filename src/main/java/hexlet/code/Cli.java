@@ -12,7 +12,6 @@ public class Cli {
      * @author Evgeny Aleksandrov
      *
      * @version 1.0
-     * @return - name of player
      */
     public static void greet() {
         System.out.println("Welcome to the Brain Games!");
