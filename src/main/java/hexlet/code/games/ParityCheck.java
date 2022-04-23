@@ -22,15 +22,15 @@ public final class ParityCheck {
     private static String[][] getGameInfo() {
         String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
         for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
-            String[] questionInfo = new String[Engine.COUNT_INFO];
+            String[] roundInfo = new String[Engine.COUNT_INFO];
 
             int number = RANDOM.nextInt(MAX_NUMBER);
             String correctAnswer = (number % 2 == 0) ? YES_ANSWER : NO_ANSWER;
 
-            questionInfo[0] = String.valueOf(number);
-            questionInfo[Engine.COUNT_INFO - 1] = correctAnswer;
+            roundInfo[0] = String.valueOf(number);
+            roundInfo[Engine.COUNT_INFO - 1] = correctAnswer;
 
-            gameInfo[i] = questionInfo;
+            gameInfo[i] = roundInfo;
         }
         return gameInfo;
     }

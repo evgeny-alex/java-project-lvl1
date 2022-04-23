@@ -26,12 +26,7 @@ public class App {
         String gameNumber = scanner.next();
 
         switch (gameNumber) {
-            case "1" -> {
-                System.out.println("Welcome to the Brain Games!");
-                System.out.print("May I have your name? ");
-                String playerName = Cli.enterAndGetName();
-                System.out.println("Hello, " + playerName + "!");
-            }
+            case "1" -> Cli.greet();
             case "2" -> ParityCheck.startGame();
             case "3" -> Calculator.startGame();
             case "4" -> CommonDivisor.startGame();

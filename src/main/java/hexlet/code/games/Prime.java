@@ -24,15 +24,15 @@ public final class Prime {
     private static String[][] getGameInfo() {
         String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
         for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
-            String[] questionInfo = new String[Engine.COUNT_INFO];
+            String[] roundInfo = new String[Engine.COUNT_INFO];
 
             int number = RANDOM.nextInt(MIN_NUMBER, MAX_NUMBER);
             boolean isPrime = isPrimeNumber(number);
 
-            questionInfo[0] = String.valueOf(number);
-            questionInfo[Engine.COUNT_INFO - 1] = isPrime ? YES_ANSWER : NO_ANSWER;
+            roundInfo[0] = String.valueOf(number);
+            roundInfo[Engine.COUNT_INFO - 1] = isPrime ? YES_ANSWER : NO_ANSWER;
 
-            gameInfo[i] = questionInfo;
+            gameInfo[i] = roundInfo;
         }
         return gameInfo;
     }
@@ -44,7 +44,7 @@ public final class Prime {
      * @return - true, если да; false, если нет
      */
     private static boolean isPrimeNumber(int number) {
-        if (number < 0 || number == 1 || number == 0) {
+        if (number <= 1) {
             return false;
         }
         for (int i = 2; i < (number / 2 + 1); i++) {

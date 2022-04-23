@@ -26,7 +26,7 @@ public final class Progression {
     private static String[][] getGameInfo() {
         String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
         for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
-            String[] questionInfo = new String[Engine.COUNT_INFO];
+            String[] roundInfo = new String[Engine.COUNT_INFO];
 
             int firstNumber = RANDOM.nextInt(MAX_FIRST_NUMBER);
             int step = RANDOM.nextInt(MIN_STEP, MAX_STEP);
@@ -45,10 +45,10 @@ public final class Progression {
                 }
             }
 
-            questionInfo[0] = String.valueOf(question);
-            questionInfo[Engine.COUNT_INFO - 1] = String.valueOf(progression[numberAnswer]);
+            roundInfo[0] = String.valueOf(question);
+            roundInfo[Engine.COUNT_INFO - 1] = String.valueOf(progression[numberAnswer]);
 
-            gameInfo[i] = questionInfo;
+            gameInfo[i] = roundInfo;
         }
         return gameInfo;
     }

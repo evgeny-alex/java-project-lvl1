@@ -20,7 +20,7 @@ public final class Calculator {
     private static String[][] getGameInfo() {
         String[][] gameInfo = new String[Engine.COUNT_ROUNDS][Engine.COUNT_INFO];
         for (int i = 0; i < Engine.COUNT_ROUNDS; i++) {
-            String[] questionInfo = new String[Engine.COUNT_INFO];
+            String[] roundInfo = new String[Engine.COUNT_INFO];
 
             int firstNumber = RANDOM.nextInt(MAX_NUMBER);
             int secondNumber = RANDOM.nextInt(MAX_NUMBER);
@@ -28,10 +28,10 @@ public final class Calculator {
 
             int answer = calculateExpression(operator, firstNumber, secondNumber);
 
-            questionInfo[0] = firstNumber + " " + OPERATORS[operator] + " " + secondNumber;
-            questionInfo[Engine.COUNT_INFO - 1] = String.valueOf(answer);
+            roundInfo[0] = firstNumber + " " + OPERATORS[operator] + " " + secondNumber;
+            roundInfo[Engine.COUNT_INFO - 1] = String.valueOf(answer);
 
-            gameInfo[i] = questionInfo;
+            gameInfo[i] = roundInfo;
         }
         return gameInfo;
     }

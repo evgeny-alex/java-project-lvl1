@@ -14,7 +14,10 @@ public class Cli {
      * @version 1.0
      * @return - name of player
      */
-    public static String enterAndGetName() {
-        return SCANNER.next();
+    public static void greet() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String playerName = SCANNER.next();
+        System.out.println("Hello, " + playerName + "!");
     }
 }

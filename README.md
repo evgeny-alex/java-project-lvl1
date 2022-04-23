@@ -1,7 +1,13 @@
 # Игры разума
 
+Игры разума - это консольное приложение, состоящее из 5 игр: Четное/нечетное число, Калькулятор, НОД, Прогрессия, Простое число. Игроку задаются вопросы, и он должен ответить на них. Если на 3 вопроса подряд предоставляется правильный ответ, то игрок побеждает, иначе игра заканчивается.
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/evgeny-alex/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/evgeny-alex/java-project-lvl1/actions)
+
+### Building:
+[![Actions Status](https://github.com/evgeny-alex/java-project-lvl1/workflows/building/badge.svg)](https://github.com/evgeny-alex/java-project-lvl1/actions)
+
 
 ### Скриншоты запуска игры
 
